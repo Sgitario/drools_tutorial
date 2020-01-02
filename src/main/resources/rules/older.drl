@@ -1,0 +1,10 @@
+package rules
+
+import com.sgitario.drools.model.Person
+
+rule "Older" when
+        $p1 : Person(name == "Jose")
+        $p2 : Person(name != "Jose", age > $p1.age)
+    then
+        System.out.println($p2.getName() + " is older than " + $p1.getName());
+end
